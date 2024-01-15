@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjmym3g06qgi0"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_frwu7"]
+[ext_resource type="PackedScene" uid="uid://cooy0k8h71iv0" path="res://BG.tscn" id="2_4gnqq"]
+[ext_resource type="AudioStream" uid="uid://dqp23rx0rbf1" path="res://Music by Ansimuz/Music by Ansimuz/happywalking.ogg" id="3_j43ch"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_frwu7")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 468.0
+offset_top = 142.0
+offset_right = 676.0
+offset_bottom = 225.0
+text = "Play"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 466.0
+offset_top = 341.0
+offset_right = 674.0
+offset_bottom = 424.0
+text = "Quit
+"
+
+[node name="BG" parent="." instance=ExtResource("2_4gnqq")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_j43ch")
+volume_db = -23.62
+autoplay = true
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
